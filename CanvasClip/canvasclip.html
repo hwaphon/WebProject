@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+        	* {
+        		padding: 0;
+        		margin: 0;
+        		box-sizing: border-box;
+        	}
+
+        	#container {
+        		width: 320px;
+        		height: 480px;
+        		margin: 48px auto;
+        		position: relative;
+        	}
+
+        	#container img {
+        		width: 100%;
+        		height: 100%;
+        		filter: blur(20px);
+        		z-index: 0;
+        		position: absolute;
+        		top: 0;
+        		left: 0;
+        	}
+
+        	#canvas {
+        		position: absolute;
+        		top: 0;
+        		left: 0;
+        		z-index: 100;
+        	}
+
+        	div#bgp {
+        		text-align: center;
+        	}
+        	button {
+        		background-color: #078;
+        		height: 30px;
+        		line-height: 30px;
+        		color: #fff;
+        		border: none;
+        		width: 96px;
+        		cursor: pointer;
+        	}
+
+        	button:hover {
+        		background-color: #087;
+        	}
+        </style>
+    </head>
+    <body>
+    	<div id="container">
+    		<img src="2.jpg">
+    		<canvas id="canvas"></canvas>
+    	</div>
+    	<div id="bgp">  		
+	    	<button id="show">show</button>
+	    	<button id="reset">reset</button>
+    	</div>
+
+    	<script type="text/javascript">
+    		var canvas = document.getElementById("canvas"),
+    			ctx = canvas.getContext("2d"),
+    			canvasWidth = 320,
+    			canvasHeight = 480,
+    			radius = 35,
+    			clipRegion = {x: -1, y: -1, r: radius},
+    			show = document.getElementById("show"),
+    			resetButton = document.getElementById("reset"),
+    			img,
+    			timeId,
+    			max = Math.max(canvasWidth, canvasHeight) * 2;
+
+    		show.addEventListener("click", function() {
+    				showChange();	
+    		},false);
+
+    		resetButton.addEventListener("click", function() {
+    			reset();
+    		}, false);
+
+    		function showChange() {
+    			timeId = setTimeout(function change() {
+    				if(clipRegion.r > max) {
+    					stopChange(timeId);
+    				} else {
+    					clipRegion.r += 10;
+    					draw(img, clipRegion);
+    					timeId = setTimeout(change, 30);
+    					console.log("1");
+    				}
+    			}, 30);
+    		}
+
+    		function stopChange(timeId) {
+    			clearTimeout(timeId);
+    		}
+
+    		function initView() {
+    			canvas.width = canvasWidth;
+    			canvas.height = canvasHeight;
+    			setRandomPosition();
+
+    			img = new Image();
+    			img.src = "2.jpg";
+    			img.onload = function(e) {
+    				draw();
+    			}
+    		}
+
+    		function reset() {
+    			stopChange(timeId);
+				clipRegion.r = radius;
+	    		setRandomPosition();
+	    		draw();
+    		}
+
+    		function draw() {
+
+    			ctx.clearRect(0,0,canvasWidth, canvasHeight);
+    			ctx.save();
+    			drawClip();
+    			ctx.drawImage(img, 0, 0, canvasWidth, canvasHeight);
+    			ctx.restore();
+
+    		}
+
+    		function drawClip() {
+    			ctx.beginPath();
+    			ctx.arc(clipRegion.x, clipRegion.y, clipRegion.r, 0, Math.PI * 2, false);
+    			ctx.clip();
+    		}
+
+    		function setRandomPosition() {
+    			clipRegion.x = Math.random() * (canvasWidth - 2 * radius) + radius;
+    			clipRegion.y = Math.random() * (canvasHeight - 2* radius) + radius;
+    		}
+
+    		initView();
+    	</script>
+    </body>
+</html>
