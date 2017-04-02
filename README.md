@@ -11,3 +11,7 @@
 5. 3D旋转演示：在本目录
 
 6. 3D翻页效果: 在本目录
+
+7. hover 效果：在本项目的 TransitionDemo 目录下
+
+8. 照片折叠效果: 在本项目的 TransitionDemo 目录下
