@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+        	* {
+        		margin: 0;
+        		padding: 0;
+        		box-sizing: border-box;
+        	}
+
+        	html, body {
+        		height: 100%;
+        		overflow: hidden;
+        	}
+
+        	body {
+        		background-color: #ccc;
+        	}
+
+        	#container {
+        		width: 186px;
+        		margin: 48px auto;
+        	}
+
+        	#img-group {
+        		position: relative;
+        	}
+
+        	.photo {
+        		width: 186px;
+        		height: 128px;
+        		border: 4px solid #fff;
+        		border-radius: 8px;
+        		position: absolute;
+        		transform-origin: center 250%;
+        		cursor: pointer;
+        		transition: all 1s;
+        		z-index: 1;
+        	}
+
+        	#photo1 {
+        		background-image: url("1.jpg");
+        		background-size: cover;
+        		background-position: center;
+        		transform: rotate(-8deg);
+        	}
+
+        	#photo2 {
+        		background-image: url("2.jpg");
+        		background-size: cover;
+        		background-position: center;
+        		transform: rotate(8deg);
+        	}
+
+        	#photo3 {
+        		background-image: url("3.jpg");
+        		background-size: cover;
+        		background-position: center;
+        	}
+
+        	.img-group:hover #photo1 {
+        		transform: rotate(-25deg);
+        	}
+
+        	.img-group:hover #photo2 {
+        		transform: rotate(25deg);
+        	}
+
+        </style>
+    </head>
+    <body>
+    	<div id="container">
+    		<div class="img-group">
+    			<div id="photo1" class="photo"></div>
+    			<div id="photo2" class="photo"></div>
+    			<div id="photo3" class="photo"></div>
+    		</div>
+    	</div>
+    </body>
+</html>
