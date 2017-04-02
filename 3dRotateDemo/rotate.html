@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			#container {
+				margin-top: 48px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+			input[type="range"] {
+				width: 480px;
+				margin-bottom: 24px;
+			}
+			#hwa-div {
+				width: 128px;
+				height: 128px;
+				background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
+				border-radius: 8px;
+				margin-bottom: 120px;
+				perspective: 800;
+				perspective-origin: 50% 50%;
+				transform-style: preserve-3d;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="container">
+			<div id="hwa-div"></div>
+			<div>
+				<p>RotateX: <span id="x-pixel">0</span> deg</p>
+				<input type="range" name="range" id="rotate-x" min="-360" max="360" step="1" value="0">
+			</div>
+			<div>
+				<p>RotateY: <span id="y-pixel">0</span> deg</p>
+				<input type="range" name="range" id="rotate-y" min="-360" max="360" step="1" value="0">
+			</div>
+			<div>
+				<p>RotateZ: <span id="z-pixel">0</span> deg</p>
+				<input type="range" name="range" id="rotate-z" min="-360" max="360" step="1" value="0">
+			</div>
+		</div>
+		<script type="text/javascript">
+			var rotateX = document.getElementById("rotate-x"),
+				xPixel = document.getElementById("x-pixel"),
+				rotateY = document.getElementById("rotate-y"),
+				yPixel = document.getElementById("y-pixel"),
+				rotateZ = document.getElementById("rotate-z"),
+				zPixel = document.getElementById("z-pixel"),
+				element = document.getElementById("hwa-div");
+				
+			rotateX.addEventListener("mousedown", function() {
+				rotateX.addEventListener("mousemove", function(e) {
+					xPixel.innerHTML = rotateX.value;
+					setTransForm();
+				},false);
+			},false);
+
+			rotateY.addEventListener("mousedown", function() {
+				rotateY.addEventListener("mousemove", function(e) {
+					yPixel.innerHTML = rotateY.value;
+					setTransForm();
+				},false);
+			},false);
+
+			rotateZ.addEventListener("mousedown", function() {
+				rotateZ.addEventListener("mousemove", function(e) {
+					zPixel.innerHTML = rotateZ.value;
+					setTransForm();
+				},false);
+			},false);
+
+			function setTransForm() {
+				element.style.transform = "rotateX(" + rotateX.value + "deg)" +
+										  "rotateY(" + rotateY.value + "deg)" +
+										  "rotateZ(" + rotateZ.value + "deg)";
+			}
+		</script>
+	</body>
+</html>
