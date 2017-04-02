@@ -9,3 +9,5 @@
 4. Canvas 绘制图案： https://github.com/hwaphon/Html5Canvas
 
 5. 3D旋转演示：在本目录
+
+6. 3D翻页效果: 在本目录
