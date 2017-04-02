@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			body {
+				font-family: sans-serif;
+			}
+			#container {
+				perspective: 800px;
+				perspective-origin: center 364px;
+				overflow: hidden;
+			}
+
+			#page-group {
+				width: 360px;
+				height: 360px;
+				margin: 24px auto;
+				padding: 20px;
+				position: relative;
+				transform-style: preserve-3d;		
+			}
+			.page {
+				width: 320px;
+				height: 320px;
+				color: #fff;
+				background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+				text-align: center;
+				font-size: 96px;
+				line-height: 320px;
+				position: absolute;
+			}
+
+			#btn-group {
+				width: 212px;
+				margin: 12px auto;
+			}
+
+			.btn {
+				width: 96px;
+				height: 32px;
+				line-height: 32px;
+				border: none;
+				cursor: pointer;
+				color: #fff;
+				background-color: #f69;
+				border-radius: 4px;
+				outline: none;
+			}
+
+			.btn:hover {
+				background-color: #f96;
+			}
+
+			#page1 {
+				transform: rotateX(0deg);
+				transform-origin: bottom;
+				transition: transform 1s linear;
+			}
+
+			#page2, #page3, #page4, #page5 {
+				transform: rotateX(90deg);
+				transform-origin: bottom;
+				transition: transform 1s linear;
+			}
+
+			.forward {
+				transform: rotateX(-90deg);
+			}
+
+			.back {
+				transform: rotateX(90deg);
+			}
+
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div id="page-group">
+				<div class="page" id="page1">1</div>
+				<div class="page" id="page2">2</div>
+				<div class="page" id="page3">3</div>
+				<div class="page" id="page4">4</div>
+				<div class="page" id="page5">5</div>
+			</div>
+		</div>
+		<div id="btn-group">
+			<button id="pre" class="btn">上一页</button>
+			<button id="next" class="btn">下一页</button>
+		</div>
+
+		<script>
+			var preButton = document.getElementById("pre"),
+				nextButton = document.getElementById("next"),
+				currentIndex = 1;
+
+			preButton.addEventListener("click", function() {
+				if(currentIndex <= 1) {
+					return;
+				}
+
+				document.getElementById("page" + currentIndex).style.transform = "rotateX(90deg)";
+				currentIndex -= 1;
+				document.getElementById("page" + currentIndex).style.transform = "rotateX(0deg)";
+			}, false);
+
+			nextButton.addEventListener("click", function() {
+				if(currentIndex >= 5) {
+					return;
+				}
+
+				document.getElementById("page" + currentIndex).style.transform = "rotateX(-90deg)";
+				currentIndex += 1;
+				document.getElementById("page" + currentIndex).style.transform = "rotateX(0deg)";
+			}, false);
+		</script>
+	</body>
+</html>
