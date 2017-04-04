@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+        	@font-face {
+        		font-family: "my-font";
+        		src: url('font/fontawesome-webfont.ttf'), url('font/fontawesome-webfont.eot'),url('font/fontawesome-webfont.woff');
+        	}
+			
+			section {
+				width: 90%;
+				height: 240px;
+				margin: 24px auto;
+				background-color: #69C;
+				text-align: center;
+				padding: 64px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+
+			.icon {
+				width: 64px;
+				height: 64px;
+				line-height: 64px;
+				text-align: center;
+				font-size: 32px;
+				background-color: #fff;
+				display: inline-block;
+				border-radius: 50%;
+				margin-right: 8px;
+				color: #69C;
+				font-family: "my-font";
+				-webkit-animation: move 1s 1s cubic-bezier(.81, -0.62, 0.23, 1.92);
+				-o-animation: move 1s cubic-bezier(.81, -0.62, 0.23, 1.92);
+				animation: move 1s cubic-bezier(.81, -0.62, 0.23, 1.92);
+
+				-webkit-animation-fill-mode: both;
+				-o-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+
+			.home {
+				-webkit-animation-delay: 0s;
+				-o-animation-delay: 0s;
+				animation-delay: 0s;			
+			}
+
+			.home::before {
+				content: "\f015";
+			}
+
+			.search {
+				-webkit-animation-delay: 0.1s;
+				-o-animation-delay: 0.1s;
+				animation-delay: 0.1s;				
+			}
+
+			.search::before {
+				content: "\f002";
+			}
+			
+			.user {
+				-webkit-animation-delay: 0.2s;
+				-o-animation-delay: 0.2s;
+				animation-delay: 0.2s;			
+			}
+
+			.user::before {
+				content: "\f007";
+			}
+
+			.mail {			
+				-webkit-animation-delay: 0.3s;
+				-o-animation-delay: 0.3s;
+				animation-delay: 0.3s;
+			}
+
+	
+			.mail::before {
+				content: "\f0e0";
+			}
+
+			.chat {
+				-webkit-animation-delay: 0.4s;
+				-o-animation-delay: 0.4s;
+				animation-delay: 0.4s;			
+			}
+
+			.chat::before {
+				content: "\f075";
+			}
+
+			@-webkit-keyframes move {
+				from {
+					opacity: 0;
+					-webkit-transform: translateY(100%);
+					-ms-transform: translateY(100%);
+					-o-transform: translateY(100%);
+					transform: translateY(100%);
+				}
+				to {
+					opacity: 1;
+					-webkit-transform: translateY(0%);
+					-ms-transform: translateY(0%);
+					-o-transform: translateY(0%);
+					transform: translateY(0%);
+				}
+			}
+
+        </style>
+    </head>
+    <body>
+    	<section>		
+    		<span class="home icon"></span>
+    		<span class="search icon"></span>
+    		<span class="user icon"></span>
+    		<span class="mail icon"></span>
+    		<span class="chat icon"></span>
+    	</section>
+    </body>
+</html>
