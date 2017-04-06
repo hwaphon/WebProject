@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+        	*, *::before, *::after {
+        		padding: 0;
+        		margin: 0;
+        		box-sizing: border-box;
+        	}
+
+        	html, body {
+        		height: 100%;
+        	}
+
+        	body {
+                background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
+        		font-family: sans-serif;
+        		overflow: hidden;
+        	}
+
+        	.wraper {
+        		width: 260px;
+        		height: 260px;
+        		margin: 128px auto;
+        		perspective: 1000px;
+        		perspective-origin: 50% 50%;
+        	}
+
+        	.cube {
+        		height: 100%;
+        		width: 100%;
+        		position: relative;
+        		transform-style: preserve-3d;
+        		transform: rotateX(-30deg) rotateY(-45deg);
+        		animation: rotateAll 5s linear infinite alternate;
+        	}
+
+        	.cube > div {
+        		width: 100%;
+        		height: 100%;
+        		position: absolute;
+        		top: 0;
+        		left: 0;
+        		background-color: rgba(0,0,0,.8);
+        		text-align: center;
+        		line-height: 260px;
+        		color: #fff;
+        		font-size: 48px;
+        		border: 2px solid #fff;
+        	}
+
+        	.cube > span {
+        		width: 50%;
+        		height: 50%;
+        		position: absolute;
+        		background-color: #aaa;
+        		opacity: 0.8;
+        		top: 65px;
+        		left: 65px;
+        		border: 2px solid #39C;
+        	}
+
+        	div.out-left {
+        		transform: rotateY(90deg) translateZ(-130px);
+
+        	}
+
+        	div.out-right {
+        		transform: rotateY(90deg) translateZ(130px);
+        	}
+
+        	div.out-top {
+
+        		transform: rotateX(90deg) translateZ(130px);
+        	}
+
+        	div.out-bottom {
+
+        		transform: rotateX(90deg) translateZ(-130px);
+
+        	}
+        	div.out-end {
+        		transform: translateZ(-130px);
+
+        	}
+
+        	div.out-front {
+        		transform: translateZ(130px);
+
+        	}
+
+        	span.in-left {
+        		transform: rotateY(90deg) translateZ(-65px);
+
+        	}
+
+        	span.in-right {
+        		transform: rotateY(90deg) translateZ(65px);
+        	}
+
+        	span.in-top {
+
+        		transform: rotateX(90deg) translateZ(65px);
+        	}
+
+        	span.in-bottom {
+
+        		transform: rotateX(90deg) translateZ(-65px);
+
+        	}
+        	span.in-end {
+        		transform: translateZ(-65px);
+
+        	}
+
+        	span.in-front {
+        		transform: translateZ(65px);
+
+        	}
+
+        	@keyframes rotateAll {
+        		0% {
+        				transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateZ(-200px);
+        			} 
+        		100% {
+        			transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg) translateZ(200px);
+        		}
+        	}
+
+        </style>
+    </head>
+    <body>
+    	<div class="wraper">
+    		<div class="cube">
+    			<div class="out-front">Front</div>
+    			<div class="out-end">End</div>
+    			<div class="out-left">Left</div>
+    			<div class="out-right">Right</div>
+    			<div class="out-top">Top</div>
+    			<div class="out-bottom">Bottom</div>
+
+    			<span class="in-front"></span>
+    			<span class="in-end"></span>
+    			<span class="in-left"></span>
+    			<span class="in-right"></span>
+    			<span class="in-top"></span>
+    			<span class="in-bottom"></span>
+    		</div>
+    	</div>
+    </body>
+</html>
