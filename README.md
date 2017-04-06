@@ -19,3 +19,5 @@
 9. 曲线阴影和翘边阴影：在本项目的 PhotoShadow 目录下（不过需要注意的是，父级设置了relative，子元素设置了absolute，且均设置了z-index属性值的时候，父级对子元素的层级有限制（即不论子元素z-index值大小，层级不“正常”显示）。如果将父级的层级设置为：z-index：auto，或者父级不设置z-index属性，则子元素的z-index不受父级限制，即正常显示。）
 
 10. 贝塞尔曲线实现弹性效果： 在本项目的 TransitionDemo 目录下
+
+11. 3D 旋转球形： 在本项目的 3dRotateDemo 目录下
