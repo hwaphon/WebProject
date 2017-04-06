@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <style type="text/css">
+        	*,
+        	*::before,
+        	*::after {
+        		padding: 0;
+        		margin: 0;
+        		box-sizing: border-box;
+        	}
+
+        	.box-container {
+        		width: 240px;
+        		height: 240px;
+        		margin: 128px auto;
+        		perspective: 800px;
+        		perspective-origin: 50% 50%;
+        	}
+
+        	.box {
+        		width: 100%;
+        		height: 100%;
+        		position: relative;
+        		transform-style: preserve-3d;
+        		animation: rotateAll 5s infinite linear;
+
+        	}
+
+        	.box > div {
+        		width: 100%;
+        		height: 100%;
+        		border: 4px solid #0C9;
+        		position: absolute;
+        		top: 0;
+        		left: 0;
+        		border-radius: 50%;
+        	}
+
+        	.box::before {
+        		content: "";
+        		width: 2px;
+        		height: 340px;
+        		background-color: #669;
+        		position: absolute;
+        		left: 0;
+        		top: 0;
+        		transform: translateX(120px) translateY(-50px);
+        	}
+
+        	.line-1 {
+        		transform: rotateY(0deg);
+        	}
+
+        	.line-2 {
+        		transform: rotateY(-36deg);
+        	}
+
+        	.line-3 {
+        		transform: rotateY(-72deg);
+        	}
+
+        	.line-4 {
+        		transform: rotateY(-108deg);
+        	}
+
+        	.line-5 {
+        		transform: rotateY(-144deg);
+        	}
+
+        	@keyframes rotateAll {
+        		from {
+        			transform: rotateZ(-30deg) rotateY(0);
+        		}
+        		to {
+        			transform: rotateZ(-30deg) rotateY(360deg);
+        		}
+        	}
+        </style>
+    </head>
+    <body>
+    	<div class="box-container">
+    		<div class="box">
+    			<div class="line-1"></div>
+    			<div class="line-2"></div>
+    			<div class="line-3"></div>
+    			<div class="line-4"></div>
+    			<div class="line-5"></div>
+    		</div>
+    	</div>
+    </body>
+</html>
