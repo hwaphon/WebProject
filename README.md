@@ -23,3 +23,5 @@
 10. 贝塞尔曲线实现弹性效果： 在本项目的 TransitionDemo 目录下
 
 11. 3D 旋转球形： 在本项目的 3dRotateDemo 目录下
+
+12. 3D 旋转立方体： 在本项目的 3dRotateDemo 目录下
