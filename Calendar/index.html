@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<style type="text/css">
+			*, *::before,*::after {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			html {
+				height: 100%;
+			}
+			body {
+				background-color: #ccc;
+				font-family: sans-serif;
+			}
+			.calendar {
+				margin: 48px auto;
+				width: 480px;
+				height: 320px;
+				background-color: #fff;
+				border-radius: 8px;
+			}
+			.title {
+				position: relative;
+				text-align: center;
+				border-bottom: 1px solid #ccc;
+				padding: 8px 0px;
+			}
+			.month {
+				font-size: 24px;
+			}
+			.year {
+				font-size: 12px;
+			}
+			.blue {
+				color: #3CC;
+			}
+			.lightgray {
+				color: #ccc;
+			}
+			.darkgray {
+				color: #666;
+			}
+			#pre-month, #next-month {
+				width: 24px;
+				height: 24px;
+				position: absolute;
+				background-repeat: no-repeat;
+				background-position: center;
+				cursor: pointer;
+				outline: none;
+			}
+			#pre-month {
+				left: 12px;
+				top: 18px;
+				background-image: url("pre.png");
+			}
+			#next-month {
+				right: 12px;
+				top: 18px;
+				background-image: url("pre.png");
+				transform: rotate(180deg);
+			}
+			.weeklist{
+				height: 36px;
+				list-style: none;
+				display: flex;
+				flex-flow: row nowrap;
+				align-items: center;
+			}
+			.weeklist li {
+				text-align: center;
+				flex: 1 1 68.5px;
+			}
+			.clearfix::before, .clearfix::after {
+				content: "";
+				visibility: hidden;
+				height: 0;
+				font-size: 0;
+				display: table;
+			}
+			.clearfix::after {
+				clear: both;
+			}
+			::selection {
+				background-color: transparent;
+			}
+			.daylist {
+				list-style: none;
+				display: flex;
+				flex-flow: row wrap;
+				align-items: center;
+				justify-content: flex-start;
+			}
+			.daylist li {
+				height: 36px;
+				line-height: 36px;
+				flex: 0 0 68.5px;
+				text-align: center;
+				cursor: pointer;
+
+			}
+
+			.daylist li:hover {
+				background-color: rgba(0,0,0,.1);
+				border-radius: 4px;
+			}
+
+			.daylist li.active {
+				background-color: #3CC;
+				border-radius: 4px;
+				color: #fff;
+				border: 1px solid #3CC;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="calendar">
+			<div class="title">
+				<h1 class="month blue" id="month">Month</h1>
+				<h2 class="year blue" id="year">year</h2>
+				<a href="#" id="pre-month"></a>
+				<a href="#" id="next-month"></a>
+			</div>
+			<div class="body">
+				<ul class="weeklist lightgray">
+					<li>MON</li>
+					<li>TUE</li>
+					<li>WED</li>
+					<li>THU</li>
+					<li>FRI</li>
+					<li>SAT</li>
+					<li>SUN</li>
+				</ul>
+				<ul class="daylist darkgray" id="days">
+				</ul>
+			</div>
+		</div>
+
+		<script>
+			var monthElement = document.getElementById("month"),
+				yearElement = document.getElementById("year"),
+				daysElement = document.getElementById("days"),
+				preButton = document.getElementById("pre-month"),
+				nextButton = document.getElementById("next-month");
+
+			var month_olympic = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+				month_normal = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+				month_name = ["January", "Febrary", "March", "April", "May", "June", "July",
+							  "Auguest", "September", "October", "November", "December"];
+
+
+			var date = new Date(),
+				year = date.getFullYear(),
+				month = date.getMonth(),
+				day = date.getDate();
+
+			// 获取该月的第一天是星期几
+			function getDaysStart() {
+				var tempDate = new Date(year, month, 1),
+					tempDay = tempDate.getDay();
+
+				if( tempDay === 0) {
+					return 6;
+				} else {
+					return tempDay - 1;
+				}
+			}
+
+			// 获取一个月有几天
+		    function getDaysOfMonth() {
+		    	if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+		    		return month_olympic[month];
+		    	} else {
+		    		return month_normal[month];
+		    	}
+		    }
+
+		    function refreshDate() {
+		    	var days = getDaysOfMonth(),
+		    		firstDayOfMonth = getDaysStart(),
+		    		str = "";
+
+		    	for(var i = 0; i < firstDayOfMonth; i++) {
+		    		str += "<li></li>";
+		    	}
+
+		    	for(var i = 1; i <= days; i++) {
+		    		if(year < date.getFullYear() || 
+		    		   year === date.getFullYear() && month < date.getMonth() || 
+		    		   year === date.getFullYear() && month === date.getMonth() && i < day) {
+		    			str += '<li class = "lightgray">' + i +'</li>';
+		    		} else if(year > date.getFullYear() || 
+		    			      year === date.getFullYear() && month > date.getMonth() || 
+		    			      year === date.getFullYear() && month === date.getMonth() && i > day) {
+		    			str += '<li class = "darkgray">' + i +'</li>';
+		    		} else {
+		    			str += '<li class = "blue active">' + i +'</li>';
+		    		}
+		    	}
+
+		    	daysElement.innerHTML = str;
+		    	yearElement.innerHTML = year;
+		    	monthElement.innerHTML = month_name[month];
+		    }
+
+		    refreshDate(year, month);
+
+		    preButton.addEventListener("click", function(e) {
+		    	e.preventDefault();
+		    	month -= 1;
+		    	if(month < 0) {
+		    		year -= 1;
+		    		month = 11;
+		    	}
+		    	refreshDate();
+		    }, false);
+
+		    nextButton.addEventListener("click", function(e) {
+		    	e.preventDefault();
+		    	month += 1;
+		    	if(month > 11) {
+		    		year += 1;
+		    		month = 0;
+		    	}
+		    	refreshDate();
+		    }, false);
+
+		</script>
+	</body>
+</html>
