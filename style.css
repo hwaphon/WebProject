@@ -2,7 +2,7 @@
 * @Author: hwaphon
 * @Date:   2017-04-12 16:30:56
 * @Last Modified by:   hwaphon
-* @Last Modified time: 2017-04-12 16:36:37
+* @Last Modified time: 2017-04-15 10:05:57
 */
 *,
 *::before,
@@ -19,6 +19,7 @@ body {
 
 body {
     background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    background-attachment: fixed;
 }
 
 ul {
