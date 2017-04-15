@@ -1,0 +1,209 @@
+/****************************
+ *    基本样式
+ ****************************/
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+	font-family: sans-serif;
+	background-image: url("../imgs/bg.jpg");
+}
+
+.border-radius(@radius: 4px) {
+	border-radius: @radius;
+	-webkit-border-radius: @radius;
+}
+
+/****************************
+ *    头部样式
+ ****************************/
+#header {
+	@h1-color: #324B4B;
+	@h1-span-color: #F0D200;
+	@p-color: #fff;
+
+	background-image: url("../imgs/bg-header.png");
+	background-repeat: repeat-x;
+	background-position: left bottom;
+	padding: 70px 0;
+	text-align: center;
+
+	h1 {
+		font: 800%/1 Impact, Helvetica, sans-serif;
+		color: @h1-color;
+		text-transform: uppercase;
+
+		span {
+			color: @h1-span-color;
+		}
+	}
+
+	p {
+		color: @p-color;
+		font-size: 20px;
+
+		em {
+			font-weight: bold;
+		}
+	}
+}
+
+/****************************
+ *    主体样式
+ ****************************/
+
+#main {
+	@element-space: 16px;
+	@h2-color: #DC3228;
+
+	display: flex;
+	flex-flow: row wrap;
+	padding: @element-space*2 5%;
+
+	.item {
+		flex: 0 0 192px;
+		text-align: center;
+		padding-top: @element-space * 2;
+		transition: transform .3s;
+		margin-bottom: @element-space;
+
+		header {
+
+			padding: @element-space / 2;
+
+			.icon {
+				width: 125px;
+				height: 135px;
+				background-image: url("../imgs/browsehappy-sprite.png");
+				margin: 0 auto;
+			}
+
+			h2 {
+				margin-top: @element-space;
+				color: @h2-color;
+				font: 110% /1 Impact, Helvetica, sans-serif;
+				background-color: rgba(255, 255, 255, 0.4);
+				line-height: 32px;
+				text-transform: uppercase;
+				.border-radius;
+			}
+		}
+
+		& > p {
+			height: @element-space *5;
+			padding: @element-space / 2;
+		}
+
+		p, footer p {
+			margin-top: @element-space / 2;
+			font-size: 13px;
+			color: rgb(50, 75, 75);
+			text-shadow: 1px 1px 1px rgba(255,255,255, .7);
+		}
+
+		footer {
+			margin-top: @element-space;
+			padding: @element-space / 2;
+		}
+
+		a {
+			display: inline-block;
+			width: 100%;
+			border: none;
+			background-color: rgba(255, 255, 255, 0.3);
+			line-height: 24px;
+			color: rgb(50, 75, 75);
+			font-size: 12px;
+			text-shadow: 1px 1px 1px rgba(255,255,255, .7);
+			margin-top: @element-space / 2;
+			text-decoration: none;
+			.border-radius(2px);
+		}
+
+		&:hover {
+			background-color: rgba(255, 255, 255, 0.3);
+			transform: scale(1.05);
+		}
+
+		&:hover a {
+			background-color: #1E8585;
+			color: #fff;
+			text-shadow: -1px -1px 1px rgba(0, 0,0, .7);
+		}
+	}
+
+	.item:first-child {
+		.icon {
+			background-position: 0 0;
+		}
+	}
+
+	.item:nth-child(2) {
+		.icon {
+			background-position: -125px 0;
+		}
+	}
+
+	.item:nth-child(3) {
+		.icon {
+			background-position: -375px 0;
+		}
+	}
+
+	.item:nth-child(4) {
+		.icon {
+			background-position: -250px 0;
+		}
+	}
+
+	.item:nth-child(5) {
+		.icon {
+			background-position: -625px 0;
+		}
+	}
+
+	.item:nth-child(6) {
+		.icon {
+			background-position: -500px 0;
+		}
+	}
+}
+
+/****************************
+ *    页脚样式
+ ****************************/
+
+#footer {
+	@footer-padding-tb: 70px;
+	@footer-h2-color: #F0D200;
+
+	padding: @footer-padding-tb 0;
+	background-image: url("../imgs/bg-footer.png");
+	background-position: left top;
+	background-repeat: repeat-x;
+	text-align: center;
+
+	h2 {
+		color: @footer-h2-color;
+		font-size: 18px;
+	}
+
+	p {
+		color: #fff;
+		font-size: 12px;
+		margin-top: 12px;
+	}
+
+	.author {
+		font-size: 18px;
+		font-weight: bold;
+		text-shadow: 1px 1px 1px rgba(0, 0, 0, .7);
+	}
+}
+
+

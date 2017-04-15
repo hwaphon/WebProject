@@ -1,0 +1,153 @@
+/****************************
+ *    基本样式
+ ****************************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  font-family: sans-serif;
+  background-image: url("../imgs/bg.jpg");
+}
+/****************************
+ *    头部样式
+ ****************************/
+#header {
+  background-image: url("../imgs/bg-header.png");
+  background-repeat: repeat-x;
+  background-position: left bottom;
+  padding: 70px 0;
+  text-align: center;
+}
+#header h1 {
+  font: 800%/1 Impact, Helvetica, sans-serif;
+  color: #324b4b;
+  text-transform: uppercase;
+}
+#header h1 span {
+  color: #f0d200;
+}
+#header p {
+  color: #ffffff;
+  font-size: 20px;
+}
+#header p em {
+  font-weight: bold;
+}
+/****************************
+ *    主体样式
+ ****************************/
+#main {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 32px 5%;
+}
+#main .item {
+  flex: 0 0 192px;
+  text-align: center;
+  padding-top: 32px;
+  transition: transform .3s;
+  margin-bottom: 16px;
+}
+#main .item header {
+  padding: 8px;
+}
+#main .item header .icon {
+  width: 125px;
+  height: 135px;
+  background-image: url("../imgs/browsehappy-sprite.png");
+  margin: 0 auto;
+}
+#main .item header h2 {
+  margin-top: 16px;
+  color: #dc3228;
+  font: 110% / 1 Impact, Helvetica, sans-serif;
+  background-color: rgba(255, 255, 255, 0.4);
+  line-height: 32px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+#main .item > p {
+  height: 80px;
+  padding: 8px;
+}
+#main .item p,
+#main .item footer p {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #324b4b;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.7);
+}
+#main .item footer {
+  margin-top: 16px;
+  padding: 8px;
+}
+#main .item a {
+  display: inline-block;
+  width: 100%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.3);
+  line-height: 24px;
+  color: #324b4b;
+  font-size: 12px;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.7);
+  margin-top: 8px;
+  text-decoration: none;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+#main .item:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+#main .item:hover a {
+  background-color: #1E8585;
+  color: #fff;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.7);
+}
+#main .item:first-child .icon {
+  background-position: 0 0;
+}
+#main .item:nth-child(2) .icon {
+  background-position: -125px 0;
+}
+#main .item:nth-child(3) .icon {
+  background-position: -375px 0;
+}
+#main .item:nth-child(4) .icon {
+  background-position: -250px 0;
+}
+#main .item:nth-child(5) .icon {
+  background-position: -625px 0;
+}
+#main .item:nth-child(6) .icon {
+  background-position: -500px 0;
+}
+/****************************
+ *    页脚样式
+ ****************************/
+#footer {
+  padding: 70px 0;
+  background-image: url("../imgs/bg-footer.png");
+  background-position: left top;
+  background-repeat: repeat-x;
+  text-align: center;
+}
+#footer h2 {
+  color: #f0d200;
+  font-size: 18px;
+}
+#footer p {
+  color: #fff;
+  font-size: 12px;
+  margin-top: 12px;
+}
+#footer .author {
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+}
