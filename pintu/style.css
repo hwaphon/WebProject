@@ -1,0 +1,101 @@
+*,*::before,*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.container {
+	width: 480px;
+	margin: 24px auto;
+	text-align: center;
+}
+
+.game {
+	width: 480px;
+	height: 480px;
+	background-color: #fff;
+	margin-bottom: 24px;
+	position: relative;
+}
+
+div.item {
+	position: absolute;
+	width: 160px;
+	height: 160px;
+	background-color: #22C7A9;
+	border: 2px solid #fff;
+	color: #fff;
+	line-height: 160px;
+	font-size: 28px;
+	font-weight: bold;
+	transition: all .3s;
+}
+
+div#d1 {
+	top: 0;
+	left: 0;
+}
+
+div#d2 {
+	top: 0;
+	left: 160px;
+}
+
+div#d3 {
+	top: 0;
+	left: 320px;
+}
+
+div#d4 {
+	top: 160px;
+	left: 0;
+}
+
+div#d5 {
+	top: 160px;
+	left: 160px;
+}
+
+div#d6 {
+	top: 160px;
+	left: 320px;
+}
+
+div#d7 {
+	top: 320px;
+	left: 0;
+}
+
+div#d8 {
+	top: 320px;
+	left: 160px;
+}
+
+div#d9 {
+	top: 320px;
+	left: 320px;
+	background-color: #FCCF4D;
+}
+
+button {
+	outline: none;
+	border: none;
+	background-color: #FCA180;
+	padding: 8px 24px;
+	color: #fff;
+	border-radius: 4px;
+	cursor: pointer;
+	margin-top: 8px;
+}
+
+button:hover {
+	background-color: #F56262;
+}
+
+button#start {
+	margin-right: 12px;
+}
+
+::selection {
+	background-color: transparent;
+}
