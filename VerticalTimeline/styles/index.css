@@ -9,6 +9,9 @@ body {
   background-color: #456990;
   color: #fff;
 }
+.timeline ul {
+  padding-bottom: 24px;
+}
 .timeline ul li {
   list-style: none;
   position: relative;
