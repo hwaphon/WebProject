@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+  background-color: #456990;
+  color: #fff;
+}
+.timeline ul li {
+  list-style: none;
+  position: relative;
+  padding-top: 50px;
+  width: 6px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+.timeline ul li::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+.timeline ul li.in-view::after {
+  background-color: #F45B69;
+  transition: background-color 0.5s ease-in-out;
+}
+.timeline ul li div {
+  position: relative;
+  width: 400px;
+  padding: 15px;
+  background-color: #F45B69;
+  bottom: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+.timeline ul li div::before {
+  content: "";
+  position: absolute;
+  bottom: 7px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+.timeline ul li:nth-child(odd) div {
+  left: 45px;
+  transform: translateX(200px);
+}
+.timeline ul li:nth-child(odd) div::before {
+  left: -15px;
+  border-width: 8px 16px 8px 0;
+  border-color: transparent #F45B69 transparent transparent;
+}
+.timeline ul li:nth-child(even) div {
+  left: -439px;
+  transform: translateX(-200px);
+}
+.timeline ul li:nth-child(even) div::before {
+  right: -15px;
+  border-width: 8px 0 8px 16px;
+  border-color: transparent transparent transparent #F45B69;
+}
+.timeline ul li.in-view div {
+  transform: none;
+  visibility: visible;
+  opacity: 1;
+}
+@media screen and (max-width: 1000px) {
+  .timeline ul li div {
+    width: 250px;
+  }
+  .timeline ul li:nth-child(even) div {
+    left: -289px;
+  }
+}
+@media screen and (max-width: 675px) {
+  .timeline ul li {
+    margin-left: 48px;
+  }
+  .timeline ul li:nth-child(even) div,
+  .timeline ul li:nth-child(odd) div {
+    left: 45px;
+  }
+  .timeline ul li:nth-child(even) div::before,
+  .timeline ul li:nth-child(odd) div::before {
+    left: -15px;
+    border-width: 8px 16px 8px 0;
+    border-color: transparent #F45B69 transparent transparent;
+  }
+}

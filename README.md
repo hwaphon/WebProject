@@ -31,3 +31,5 @@
 14. Browse Happy: 在本项目的 browseHappy 目录下
 
 15. 拼图游戏: 在本项目的 pintu 目录下
+
+16. 垂直时间轴（响应式）: 在本项目的 VerticalTimeline 目录下，详情可查看博客 [Building a Vertical Timeline With CSS and a Touch of JavaScript](https://webdesign.tutsplus.com/tutorials/building-a-vertical-timeline-with-css-and-a-touch-of-javascript--cms-26528)
