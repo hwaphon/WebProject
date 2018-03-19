@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标悬浮炫酷效果</title>
+	<link rel="stylesheet" href="./index.css">
+</head>
+<body>
+	<div class="btn__container">
+		<button class="btn">
+			<span>Hover me, i'm awesome</span>
+		</button>
+	</div>
+	<script>
+		var btn = document.querySelector('.btn');
+		btn.addEventListener('mousemove', function (e) {
+			let x = e.offsetX;
+			let y = e.offsetY;
+			e.target.style.setProperty('--x', x + 'px');
+			e.target.style.setProperty('--y', y + 'px');
+		}, false)
+	</script>
+</body>
+</html>
