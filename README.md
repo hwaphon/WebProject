@@ -39,3 +39,5 @@
 18. 使用 `Vue` + `Vuex` 实现的 Notes App. 参考地址：[Learn Vuex by Building a Notes App](https://coligo.io/learn-vuex-by-building-notes-app/)
 
 19. 使用 `Vue` + `Vuex` + `axios` 实现的一个简单的 `Github` 搜索引擎，用于搜索项目。[源码地址](https://github.com/hwaphon/GithubSearchEngine)
+
+20. 简悦天气小程序，[源码地址](https://github.com/hwaphon/WXWeather)
