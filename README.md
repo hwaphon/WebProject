@@ -41,3 +41,5 @@
 19. 使用 `Vue` + `Vuex` + `axios` 实现的一个简单的 `Github` 搜索引擎，用于搜索项目。[源码地址](https://github.com/hwaphon/GithubSearchEngine)
 
 20. 简悦天气小程序，[源码地址](https://github.com/hwaphon/WXWeather)
+
+21. mpvue 开发的 ZAKER 小程序，[源码地址](https://github.com/hwaphon/mpZAKER)
