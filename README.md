@@ -45,3 +45,7 @@
 21. mpvue 开发的 ZAKER 小程序，[源码地址](https://github.com/hwaphon/mpZAKER)
 
 22. CSS 揭秘一书中各种例子的在线展示，[源码地址](https://github.com/hwaphon/cssSecretsDemo)
+
+23. `Wepy` 开发的知乎日报小程序，[源码地址](https://github.com/hwaphon/wepy-zhihunews)
+
+24. 合租 `TouchWeb`, [源码地址](https://github.com/hwaphon/Vue-Hezu)
